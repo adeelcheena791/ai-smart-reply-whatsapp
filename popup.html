@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Smart Reply</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="logo">🤖</div>
+      <div class="title">
+        <h1>AI Smart Reply</h1>
+        <p>WhatsApp Assistant</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <label for="apiKey">Gemini API Key</label>
+      <div class="input-group">
+        <input type="password" id="apiKey" placeholder="Paste your API key here">
+        <button id="toggleKey" title="Show/Hide">👁️</button>
+      </div>
+      <a href="https://aistudio.google.com/app/apikey" target="_blank" class="link">Get free API key →</a>
+    </div>
+
+    <div class="section">
+      <label for="toneSelect">Default Reply Tone</label>
+      <select id="toneSelect">
+        <option value="friendly">😄 Friendly</option>
+        <option value="professional">🧑‍💼 Professional</option>
+        <option value="formal">📩 Formal</option>
+        <option value="casual">😎 Casual</option>
+        <option value="flirty">😉 Flirty</option>
+      </select>
+    </div>
+
+    <div class="section">
+      <label class="switch-label">
+        <span>Enable on WhatsApp Web</span>
+        <label class="switch">
+          <input type="checkbox" id="enabledToggle" checked>
+          <span class="slider"></span>
+        </label>
+      </label>
+    </div>
+
+    <button id="saveBtn">Save Settings</button>
+    <div id="status"></div>
+
+    <div class="footer">
+      <span id="statusDot"></span>
+      <span id="statusText">Checking...</span>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

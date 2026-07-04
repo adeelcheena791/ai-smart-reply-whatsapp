@@ -1,0 +1,254 @@
+/* styles/content.css - Premium UI for AI Smart Reply Assistant */
+
+/* ================= FLOATING ACTION BUTTON ================= */
+#ai-sr-fab {
+  position: fixed;
+  bottom: 90px;
+  right: 24px;
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 2147483646;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+}
+
+#ai-sr-fab:hover {
+  transform: scale(1.1) rotate(15deg);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+}
+
+#ai-sr-fab:active {
+  transform: scale(0.95);
+}
+
+#ai-sr-fab.pulse {
+  animation: ai-sr-pulse 1s ease-in-out 2;
+}
+
+@keyframes ai-sr-pulse {
+  0%, 100% { box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4); }
+  50% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.9), 0 0 0 8px rgba(37, 211, 102, 0.2); }
+}
+
+/* ================= MAIN REPLY CONTAINER ================= */
+#ai-smart-reply-container {
+  position: fixed;
+  bottom: 160px;
+  right: 24px;
+  width: 340px;
+  max-height: 400px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  z-index: 2147483647;
+  font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(20px) scale(0.95);
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#ai-smart-reply-container.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: all;
+}
+
+/* Dark mode support - matches WhatsApp Web */
+@media (prefers-color-scheme: dark) {
+  #ai-smart-reply-container {
+    background: #202c33;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  }
+}
+
+html[dir].dark #ai-smart-reply-container {
+  background: #202c33;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+/* ================= HEADER ================= */
+#ai-sr-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+#ai-sr-close {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 1;
+  transition: background 0.2s;
+}
+
+#ai-sr-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* ================= CONTENT ================= */
+#ai-sr-content {
+  padding: 12px;
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+#ai-sr-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+#ai-sr-content::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+@media (prefers-color-scheme: dark) {
+  #ai-sr-content::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+  }
+}
+
+/* ================= LOADING STATE ================= */
+#ai-sr-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 24px 12px;
+  color: #667781;
+  font-size: 13px;
+}
+
+@media (prefers-color-scheme: dark) {
+  #ai-sr-loading {
+    color: #8696a0;
+  }
+}
+
+.ai-sr-spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(37, 211, 102, 0.2);
+  border-top-color: #25D366;
+  border-radius: 50%;
+  animation: ai-sr-spin 0.8s linear infinite;
+}
+
+@keyframes ai-sr-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ================= ERROR STATE ================= */
+#ai-sr-error {
+  padding: 16px 12px;
+  background: #ffe5e5;
+  border: 1px solid #ffcccc;
+  border-radius: 8px;
+  color: #d32f2f;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+@media (prefers-color-scheme: dark) {
+  #ai-sr-error {
+    background: rgba(211, 47, 47, 0.15);
+    border-color: rgba(211, 47, 47, 0.3);
+    color: #ff5252;
+  }
+}
+
+/* ================= REPLY OPTIONS ================= */
+#ai-sr-replies {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ai-sr-reply {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px;
+  background: #f0f2f5;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.ai-sr-reply:hover {
+  background: #e4e6eb;
+  border-color: #25D366;
+  transform: translateX(4px);
+}
+
+.ai-sr-reply:active {
+  transform: translateX(2px) scale(0.98);
+}
+
+@media (prefers-color-scheme: dark) {
+ .ai-sr-reply {
+    background: #2a3942;
+  }
+ .ai-sr-reply:hover {
+    background: #364147;
+    border-color: #25D366;
+  }
+}
+
+.ai-sr-num {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #25D366;
+  color: white;
+  border-radius: 50%;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.ai-sr-text {
+  flex: 1;
+  color: #111b21;
+  font-size: 14px;
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+@media (prefers-color-scheme: dark) {
+ .ai-sr-text {
+    color: #e9edef;
+  }
+}
+
+/* ================= ANIMATIONS ================= */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.ai-fade {
+  animation: fadeIn 0.3s ease-in-out;
+}

@@ -1,0 +1,266 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 340px;
+  font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+  background: #f0f2f5;
+  color: #111b21;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #111b21;
+    color: #e9edef;
+  }
+}
+
+.container {
+  padding: 16px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+@media (prefers-color-scheme: dark) {
+  .header {
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+.logo {
+  font-size: 32px;
+}
+
+.title h1 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.title p {
+  font-size: 12px;
+  color: #667781;
+  margin-top: 2px;
+}
+
+.section {
+  margin-bottom: 16px;
+}
+
+label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #3b4a54;
+}
+
+@media (prefers-color-scheme: dark) {
+  label {
+    color: #d1d7db;
+  }
+}
+
+.input-group {
+  display: flex;
+  gap: 6px;
+}
+
+input[type="password"],
+input[type="text"],
+select {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid #d1d7db;
+  border-radius: 8px;
+  font-size: 14px;
+  background: white;
+  color: #111b21;
+  outline: none;
+  transition: border 0.2s;
+}
+
+input:focus,
+select:focus {
+  border-color: #25D366;
+}
+
+@media (prefers-color-scheme: dark) {
+  input, select {
+    background: #2a3942;
+    border-color: #3b4a54;
+    color: #e9edef;
+  }
+}
+
+#toggleKey {
+  padding: 0 12px;
+  border: 1px solid #d1d7db;
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+@media (prefers-color-scheme: dark) {
+  #toggleKey {
+    background: #2a3942;
+    border-color: #3b4a54;
+  }
+}
+
+.link {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 12px;
+  color: #25D366;
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.switch-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.switch {
+  position: relative;
+  width: 44px;
+  height: 24px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #d1d7db;
+  border-radius: 24px;
+  transition: 0.3s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background: white;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+input:checked + .slider {
+  background: #25D366;
+}
+
+input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+#saveBtn {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+#saveBtn:hover {
+  transform: translateY(-1px);
+}
+
+#saveBtn:active {
+  transform: translateY(0);
+}
+
+.status {
+  margin-top: 8px;
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 13px;
+  text-align: center;
+  min-height: 20px;
+}
+
+.status.success {
+  background: #d4edda;
+  color: #155724;
+}
+
+.status.error {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+@media (prefers-color-scheme: dark) {
+  .status.success {
+    background: rgba(37, 211, 102, 0.15);
+    color: #4caf50;
+  }
+  .status.error {
+    background: rgba(211, 47, 47, 0.15);
+    color: #ff5252;
+  }
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  font-size: 12px;
+  color: #667781;
+}
+
+@media (prefers-color-scheme: dark) {
+  .footer {
+    border-top-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #999;
+}
+
+.dot.ok {
+  background: #25D366;
+  box-shadow: 0 0 0 2px rgba(37, 211, 102, 0.2);
+}
+
+.dot.error {
+  background: #d32f2f;
+}
